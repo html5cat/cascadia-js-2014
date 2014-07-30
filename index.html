@@ -101,16 +101,262 @@
 					</ul>
 				</section>
 
+				<section data-state="title-alt">
+					<h2>Everything you never wanted to know about maps&hellip;</h2>
+				</section>
+
+				<section data-state="title">
+					<h2>Map Projections</h2>
+				</section>
+
+        <section class="align-left">
+          <h2>Map Projections</h2>
+          <p>How do you flatten the Earth to show in 2D?</p>
+          <ul>
+            <li class="fragment">Surfaces (plane, cylinder, cone&hellip;)</li>
+            <li class="fragment">Preservation (angle, area, distance&hellip;)</li>
+          </ul>
+          <br><br>
+          <small class="fragment">Thanks to <a href="https://github.com/mbostock">Mike Bostock</a> and <a href="https://github.com/jasondavies">Jason Davies</a> for <a href="https://github.com/d3/d3-geo-projection">D3 Geo Projections</a></small>
+        </section>
+
 				<section>
-					<h1>Everything you never wanted to know about maps...</h1>
+					<h3><a href="demos/azimuthal.html">Azimuthal (Plane)</a></h3>
+          <p>Flatten map on a plane, distoration happens at the edges</p>
+          <img src="img/azimuthal.png">
+          <!-- @TODO include demo -->
+				</section>
+
+				<section>
+					<h3><a href="demos/cylindrical.html">Cylindrical</a></h3>
+          <p>Flatten map on a cylinder, distortion happens at the top/bottom</p>
+          <img src="img/cylindrical.png">
+          <!-- @TODO include demo -->
+				</section>
+
+				<section>
+					<h3><a href="demos/conic.html">Conic</a></h3>
+          <p>Flatten map on a cone, distortion happens away from the center</p>
+					<!-- @TODO include demo -->
+          <img src="img/conic.png">
+				</section>
+
+				<section>
+					<h3><a href="demos/sterographic.html">Sterographic (Preserve angle)</a></h3>
+					<!-- @TODO include demo -->
+          <img src="img/sterographic.png">
+				</section>
+
+				<section>
+					<h3><a href="demos/mercator.html">Mercator (Preserve meridians)</a></h3>
+					<!-- @TODO include demo -->
+          <img src="img/mercator.png">
+				</section>
+
+				<section>
+					<h3><a href="demos/equalarea.html">Equal-Area (Preserve area)</a></h3>
+          <p>Shapes are always presented with areas proporational to each other.</p>
+					<img src="img/equalarea.png">
+				</section>
+
+				<section>
+					<h3><a href="demos/equirectangular.html">Equidistant (Preserve distance)</a></h3>
+					<p>Distances along meridians are preserved.</p>
+          <img src="img/equirectangular.png">
+				</section>
+
+				<section>
+					<h3><a href="demos/gnomonic.html">Gnomonic (Preserve shortest route)</a></h3>
+					<p>The shortest distance between 2 points is always a straight line</p>
+          <img src="img/gnomonic.png">
+				</section>
+
+				<section>
+					<h3><a href="demos/dymaxion.html">Compromise (Preserve "feeling")</a></h3>
+          <p>Ignore trying to preserve a metric and make the end result "feel" right</p>
+          <img src="img/dymaxion.png">
+				</section>
+
+				<section>
+					<h2><a href="https://gmaps-samples.googlecode.com/svn/trunk/poly/puzzledrag.html">Google Mercator Puzzle</a></h2>
+          <p>Combat map distoration and figure out which countries go where!</p>
+          <img src="img/mercatorpuzzle.png">
+				</section>
+
+				<section data-state="title">
+					<h2>Spatial Reference Systems</h2>
+					<p>Geographic Coordinate System/Projected Coordinate System</p>
+				</section>
+
+				<section>
+					<h2>Where is this point?</h2>
+					<pre><code>[45.5217, -122.6774]</code></pre>
+					<p class="fragment">You can't tell me because you dont have a reference</p>
+				</section>
+
+				<section>
+					<h2>Where is this point?</h2>
+					<pre><code class="bash">[45.5217, -122.6774]</code></pre>
+					<pre><code class="bash">GEOGCS["WGS 84",
+  DATUM["WGS_1984",
+      SPHEROID["WGS 84",6378137,298.257223563,
+          AUTHORITY["EPSG","7030"]],
+      AUTHORITY["EPSG","6326"]],
+  PRIMEM["Greenwich",0,
+      AUTHORITY["EPSG","8901"]],
+  UNIT["degree",0.01745329251994328,
+      AUTHORITY["EPSG","9122"]],
+  AUTHORITY["EPSG","4326"]]</code></pre>
+				</section>
+
+				<section>
+					<h2>Say hello to <a href="http://spatialreference.org/ref/epsg/4326/">EPSG:4326</a></h2>
+					<pre><code class="bash">GEOGCS["WGS 84",
+  DATUM["WGS_1984",
+      SPHEROID["WGS 84",6378137,298.257223563,
+          AUTHORITY["EPSG","7030"]],
+      AUTHORITY["EPSG","6326"]],
+  PRIMEM["Greenwich",0,
+      AUTHORITY["EPSG","8901"]],
+  UNIT["degree",0.01745329251994328,
+      AUTHORITY["EPSG","9122"]],
+  AUTHORITY["EPSG","4326"]]</code></pre>
+          <p>This is what GPS satellites use.</p>
+				</section>
+
+				<section data-state="title-alt">
+					<h2>Geographic Coordinate System</h2>
+					<p>Plot data in Latitude/Longitude onto a spherical model of the Earth</p>
+				</section>
+
+				<section>
+					<h2>Parts of a Geographic Coordinate System</h2>
 					<ul>
-						<li>Spatial Referances</li>
-						<li>Map Projections</li>
-						<li>Geodesy!</li>
-						<li>Geocoding</li>
-						<li>Routing</li>
+						<li class="fragment">Unit of measurement (degrees, minutes, seconds&hellip;)</li>
+						<li class="fragment">Prime meridian (where is 0 longitude)</li>
+						<li class="fragment">A spheroid (estimate of the size and shape of the earth)</li>
+						<li class="fragment">A datum (control points used to define lat/lng)</li>
 					</ul>
 				</section>
+
+        <section data-state="title-alt">
+          <h2>Projected Coordinate System</h2>
+          <p>Plot data in X/Y pairs onto a flat surface.</p>
+          <p>X=Longitude, Y=Latitude</p>
+        </section>
+
+				<section>
+					<h2>Say hello to <a href="http://spatialreference.org/ref/sr-org/7483/prettywkt/">EPSG:3857</a></h2>
+					<pre><code class="bash">PROJCS["WGS 84 / Pseudo-Mercator",
+    GEOGCS["WGS 84",
+        DATUM["WGS_1984",
+            SPHEROID["WGS 84",6378137,298.257223563,
+                AUTHORITY["EPSG","7030"]],
+            AUTHORITY["EPSG","6326"]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree",0.0174532925199433,
+            AUTHORITY["EPSG","9122"]],
+        AUTHORITY["EPSG","4326"]],
+    PROJECTION["Mercator_1SP"],
+    PARAMETER["central_meridian",0],
+    PARAMETER["scale_factor",1],
+    PARAMETER["false_easting",0],
+    PARAMETER["false_northing",0],
+    UNIT["metre",1,
+        AUTHORITY["EPSG","9001"]],
+    AXIS["X",EAST],
+    AXIS["Y",NORTH],
+    EXTENSION["PROJ4","+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"],
+    AUTHORITY["EPSG","3857"]]</code></pre>
+          <p>Web Mercator. Default in Google Maps, Leaflet and Esri.</p>
+				</section>
+
+				<section>
+					<h2>How stuff works, Leaflet edition</h2>
+					<pre><code>L.marker([45.5217, -122.6774]).addTo(map)</code></pre>
+					<br>
+					<ul>
+						<li>Use <code><a href="https://github.com/Leaflet/Leaflet/blob/9cb36d0a62e07709f17fa722af730628306ff912/src/geo/crs/CRS.EPSG3857.js">L.CRS.EPSG3857</a></code> to get the X/Y coordinates of the Lat/Lng (projection)</li>
+						<li>Scales the resulting X/Y (meters) on the zoom level</li>
+						<li>Now you have X/Y in pixels coordinates!</li>
+						<li>Draw</li>
+					</ul>
+				</section>
+
+        <section data-state="title-alt">
+          <h2>Spatial References in the Wild</h2>
+          <ul>
+            <li>Over 8000 projections listed on <a href="">spatialreference.org</a></li>
+            <li>Data required to be in a specific spatial reference</li>
+          </ul>
+        </section>
+
+				<section>
+          <h2><a href="demos/stateplane/">State Plane System</a></h2>
+          <img src="img/stateplane.png">
+				</section>
+
+        <section>
+          <h2>Dealing with Spatial References</h2>
+          <ul>
+            <li>ogr2ogr</li>
+            <li>proj4js</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Shapefile to GeoJSON - ogr2ogr</h3>
+          <p>Shapefiles package useful for distributing spatial data.</p>
+          <pre><code class="bash">ogr2ogr parks.geojson PortlandParksTrails -F GeoJSON -t_srs EPSG:4326 -lco COORDINATE_PRECISION=6</code></pre>
+        </section>
+
+        <section>
+          <h3>CSV to GeoJSON - ogr2ogr</h3>
+          <p>Transform point data in a CSV file to GeoJSON.</p>
+          <pre><code class="bash">ogr2ogr graffiti.geojson graffiti.vrt -f GeoJSON -t_srs EPSG:4326 -lco COORDINATE_PRECISION=-4</code></pre>
+        </section>
+
+        <section>
+          <h3>CSV to GeoJSON - proj4js</h3>
+          <p>Use proj4js and Node to convert the same CSV</p>
+        </section>
+
+				<section data-state="title">
+					<h2>The Future</h2>
+				</section>
+
+        <section>
+          <h2>Vector Tiles</h2>
+          <p>Vector maps powered by WebGL</p>
+          <ul>
+            <li><a href="https://www.mapbox.com/blog/mapbox-gl">MapBox GL</a></li>
+            <li><a href="https://www.google.com/maps/preview">Google Maps</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Adaptive Map Projection</h2>
+          <p>Mix and match map projections on the fly</p>
+          <ul>
+            <li><a href="http://cartography.oregonstate.edu/demos/AdaptiveCompositeMapProjections/">OSU Cartography Lab</a></li>
+            <li><a href="http://bl.ocks.org/jczaplew/6603431">D3 Example</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>3D</h2>
+          <p>Wait a sec, why dont we look at the Earth in 3D!</p>
+          <ul>
+            <li><a href="http://www.arcgis.com/apps/CEWebViewer/viewer.html?3dWebScene=86f88285788a4c53bd3d5dde6b315dfe">Philadelphia Redevelopment</a></li>
+            <li><a href="http://www.arcgis.com/apps/CEWebViewer/viewer.html?3dWebScene=cd8120a8985e4baea73f1046d5c1ab54">Landslide Before/After</a></li>
+            <li><a href="http://www.arcgis.com/apps/CEWebViewer/viewer.html?3dWebScene=16ab93ddf4f647709040df70ce4f70d4">JFK Assassination</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2><a href="demos/cats.html">One Last Demo</a></h2>
+        </section>
 
 				<section data-state="title">
 					<h1>Thanks!</h1>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <!-- Load Leaflet from CDN-->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.1.0/topojson.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <meta name="viewport" content="width=device-width">
+    <style>
+      html, body,  #map {
+        margin: 0;
+        width : 100%;
+        height : 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map = L.map('map', {
+          maxZoom:22
+      }).setView([40, -100], 5);
+
+      L.tileLayer('http://lorempixel.com/256/256/cats/subdomain-{s}-x{x}-y{y}-z{z}', {
+        subdomains: ['a','b','c','d']
+      }).addTo(map);
+
+      var counties = L.geoJson(null, {
+          style: {
+            color: '#ED3FCB',
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.35
+          }
+      }).addTo(map);
+
+      var states = L.geoJson(null, {
+          style: {
+            color: '#ED3FCB',
+            weight: 4,
+            opacity: 1,
+            fillOpacity: 0
+          }
+      }).addTo(map);
+
+      $.getJSON('us-counties.json', function (data) {
+          counties.addData(topojson.feature(data, data.objects.counties));
+          states.addData(topojson.feature(data, data.objects.states));
+      });
+    </script>
+
+  </body>
+</html>

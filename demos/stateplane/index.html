@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>State Plane Demo</title>
+    <link rel="stylesheet" href="http://js.arcgis.com/3.10/js/esri/css/esri.css">
+    <style>
+      body, html,#map {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+
+      #wkid {
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+        font-size: 2em;
+      }
+
+      path {
+        stroke: white;
+        stroke-width: 1.5px;
+        stroke-opacity: 0.7;
+        fill: black;
+        fill-opacity: 0.8;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <select id="wkid">
+      <option value="102003">102003 (Albers)</option>
+      <option value="102100">102100 (Web Merctor)</option>
+      <option value="4326">4326 (WGS84)</option>
+      <option value="2243">2243 (Idaho West, State Plane)</option>
+      <option value="2244">2244 (Indiana East, State Plane)</option>
+      <option value="2248">2248 (Maryland, State Plane)</option>
+      <option value="2269">2248 (Oregon North, State Plane)</option>
+      <option value="102261">102261 (Hawaii 1, State Plane)</option>
+      <option value="102631">102631 (Alaska 1, State Plane)</option>
+      <option value="102659">102659 (Florida West, State Plane)</option>
+      <option value="3995">3995 (Arctic Polar Stereographic)</option>
+    </select>
+
+    <script src="http://js.arcgis.com/3.10/"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
+

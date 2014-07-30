@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+
+    <style>
+      html, body {
+        margin:0;
+        padding:0;
+        overflow:hidden
+      }
+
+      svg {
+        position:fixed;
+        top:0;
+        left:0;
+        height:100%;
+        width:100%;
+      }
+
+      body {
+        margin: 0;
+        background: #fcfcfa;
+      }
+
+      .stroke {
+        fill: none;
+        stroke: #000;
+        stroke-width: 3px;
+      }
+
+      .fill {
+        fill: #fff;
+      }
+
+      .graticule {
+        fill: none;
+        stroke: #777;
+        stroke-width: .5px;
+        stroke-opacity: .5;
+      }
+
+      .land {
+        fill: #222;
+      }
+
+      .boundary {
+        fill: none;
+        stroke: #fff;
+        stroke-width: .5px;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script>
+
+    var width = window.innerWidth,
+        height = window.innerHeight;
+
+    var projection = d3.geo.azimuthalEqualArea()
+        .clipAngle(180 - 1e-3)
+        .scale(150)
+        .rotate([65, -45])
+        .translate([width / 2, height / 2])
+        .precision(.1);
+
+    var path = d3.geo.path()
+        .projection(projection);
+
+    var graticule = d3.geo.graticule();
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    svg.append("defs").append("path")
+        .datum({type: "Sphere"})
+        .attr("id", "sphere")
+        .attr("d", path);
+
+    svg.append("use")
+        .attr("class", "stroke")
+        .attr("xlink:href", "#sphere");
+
+    svg.append("use")
+        .attr("class", "fill")
+        .attr("xlink:href", "#sphere");
+
+    svg.append("path")
+        .datum(graticule)
+        .attr("class", "graticule")
+        .attr("d", path);
+
+    d3.json("./world-50m.json", function(error, world) {
+      svg.insert("path", ".graticule")
+          .datum(topojson.feature(world, world.objects.land))
+          .attr("class", "land")
+          .attr("d", path);
+
+      svg.insert("path", ".graticule")
+          .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
+          .attr("class", "boundary")
+          .attr("d", path);
+    });
+
+    d3.select(self.frameElement).style("height", height + "px");
+
+    </script>
+  </body>
+</html>

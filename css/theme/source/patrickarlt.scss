@@ -28,7 +28,7 @@ $headingFont: "sommet-slab", sans-serif;
 $headingColor: inherit;
 $headingTextShadow: none;
 $headingTextTransform: none;
-$backgroundColor: $cream;
+$backgroundColor: #FFF;
 $linkColor: $turquoise;
 $linkColorHover: $coral;
 $selectionBackgroundColor: $coral;
@@ -100,7 +100,7 @@ html.title-alt body {
 .reveal pre {
   font-size: .75em;
   line-height: 1.25em;
-  margin: 0 auto;
+  margin: 0 auto 0.5em;
   box-shadow: none;
   width: 100%;
 }
@@ -117,4 +117,12 @@ html.title-alt body {
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.25em;
   }
+}
+
+.reveal section img {
+  box-shadow: none;
+}
+
+.reveal section ul {
+  list-style-type: circle;
 }
