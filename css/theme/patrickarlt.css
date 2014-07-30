@@ -150,6 +150,8 @@ html body {
 
 [data-state='title'], [data-state='title-alt'] {
   color: #faf7f2; }
+  [data-state='title'] section h1, [data-state='title'] section h2, [data-state='title'] section h3, [data-state='title'] section h4, [data-state='title'] section h5, [data-state='title'] section h6, [data-state='title-alt'] section h1, [data-state='title-alt'] section h2, [data-state='title-alt'] section h3, [data-state='title-alt'] section h4, [data-state='title-alt'] section h5, [data-state='title-alt'] section h6 {
+    -webkit-text-stroke: 0 transparent; }
 
 html.title body {
   background: #68bacc; }
@@ -160,6 +162,8 @@ html.title body {
 
 html.title-alt body {
   background: #d47499; }
+  html.title-alt body .reveal h1, html.title-alt body .reveal h2, html.title-alt body .reveal h3, html.title-alt body .reveal h4, html.title-alt body .reveal h5, html.title-alt body .reveal h6 {
+    -webkit-text-stroke: none; }
   html.title-alt body .reveal a {
     color: #992f58; }
     html.title-alt body .reveal a:hover {
@@ -191,8 +195,13 @@ html.title-alt body {
 .reveal li, .reveal p {
   line-height: 1.5em; }
 
+.stroke {
+  -webkit-text-stroke: 2px white; }
+
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   line-height: 1.25em; }
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-weight: 700; }
 
 .reveal section img {
   box-shadow: none; }

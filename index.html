@@ -44,7 +44,7 @@
 			<div class="slides">
 
 				<section data-state="title">
-					<h2>Hi Everyone!</h2>
+					<h1>Hi Everyone!</h1>
 					<p>
 						<small>Twitter : <a href="http://twitter.com/patrickarlt">@patrickarlt</a> / Slides : <a href="http://patrickarlt.github.io/cascadia-js-2014/#/">http://bit.ly/1rVy6n3</a></small>
 					</p>
@@ -72,11 +72,11 @@
 				</section>
 
 				<section data-state="title">
-					<h2>Lots of maps&hellip;</h2>
+					<h1>Lots of maps&hellip;</h1>
 				</section>
 
 				<section>
-					<h2>I've really learned a lot maps and mapmaking</h2>
+					<h1>I've really learned a lot maps and mapmaking</h1>
 				</section>
 
 				<section>
@@ -106,11 +106,11 @@
 				</section>
 
 				<section data-state="title">
-					<h2>Map Projections</h2>
+					<h1>Map Projections</h1>
 				</section>
 
         <section class="align-left">
-          <h2>Map Projections</h2>
+          <h1>Map Projections</h1>
           <p>How do you flatten the Earth to show in 2D?</p>
           <ul>
             <li class="fragment">Surfaces (plane, cylinder, cone&hellip;)</li>
@@ -120,72 +120,89 @@
           <small class="fragment">Thanks to <a href="https://github.com/mbostock">Mike Bostock</a> and <a href="https://github.com/jasondavies">Jason Davies</a> for <a href="https://github.com/d3/d3-geo-projection">D3 Geo Projections</a></small>
         </section>
 
-				<section>
-					<h3><a href="demos/azimuthal.html">Azimuthal (Plane)</a></h3>
-          <p>Flatten map on a plane, distoration happens at the edges</p>
-          <img src="img/azimuthal.png">
-          <!-- @TODO include demo -->
+				<section data-background="img/azimuthal.png">
+          <a href="demos/azimuthal.html">
+            <h1 class="stroke">Azimuthal</h1>
+            <h2 class="stroke">Sphere to Plane</h2>
+          </a>
 				</section>
 
-				<section>
-					<h3><a href="demos/cylindrical.html">Cylindrical</a></h3>
-          <p>Flatten map on a cylinder, distortion happens at the top/bottom</p>
-          <img src="img/cylindrical.png">
-          <!-- @TODO include demo -->
+				<section data-background="img/cylindrical.png">
+          <a href="demos/cylindrical.html">
+            <h1 class="stroke">Cylindrical</h1>
+            <h2 class="stroke">Sphere to Cylinder</h2>
+          </a>
 				</section>
 
-				<section>
-					<h3><a href="demos/conic.html">Conic</a></h3>
-          <p>Flatten map on a cone, distortion happens away from the center</p>
-					<!-- @TODO include demo -->
-          <img src="img/conic.png">
+				<section data-background="img/conic.png">
+          <a href="demos/conic.html">
+            <h1 class="stroke">Conic</h1>
+            <h2 class="stroke">Sphere to Cone</h2>
+          </a>
 				</section>
 
-				<section>
-					<h3><a href="demos/sterographic.html">Sterographic (Preserve angle)</a></h3>
-					<!-- @TODO include demo -->
-          <img src="img/sterographic.png">
+				<section data-background="img/sterographic.png">
+          <a href="demos/sterographic.html">
+            <h1 class="stroke">Sterographic</h1>
+            <h2 class="stroke">Preserve angles around a point</h2>
+          </a>
 				</section>
 
-				<section>
-					<h3><a href="demos/mercator.html">Mercator (Preserve meridians)</a></h3>
-					<!-- @TODO include demo -->
-          <img src="img/mercator.png">
+				<section data-background="img/mercator.png">
+          <a href="demos/mercator.html">
+            <h1 class="stroke">Mercator</h1>
+            <h2 class="stroke">Preserve course</h2>
+          </a>
+					<aside class="notes">navigation, also square</aside>
 				</section>
 
-				<section>
-					<h3><a href="demos/equalarea.html">Equal-Area (Preserve area)</a></h3>
-          <p>Shapes are always presented with areas proporational to each other.</p>
-					<img src="img/equalarea.png">
+				<section data-background="img/equalarea.png">
+					<a href="demos/equalarea.html">
+            <h1 class="stroke">Equal-Area</h1>
+            <h2 class="stroke">Preserve proportional areas</h2>
+          </a>
+          <aside class="notes">
+            <p>Shapes are always presented with areas proporational to each other.</p>
+          </aside>
 				</section>
 
-				<section>
-					<h3><a href="demos/equirectangular.html">Equidistant (Preserve distance)</a></h3>
-					<p>Distances along meridians are preserved.</p>
-          <img src="img/equirectangular.png">
+				<section data-background="img/equirectangular.png">
+          <a href="demos/equirectangular.html">
+            <h1 class="stroke">Equidistant</h1>
+            <h2 class="stroke">Preserve distance along meridians</h2>
+          </a>
+          <aside class="notes">
+            <p>Distances along the meridians are preserved createing a nice grid that is wider then it is long</p>
+          </aside>
 				</section>
 
-				<section>
-					<h3><a href="demos/gnomonic.html">Gnomonic (Preserve shortest route)</a></h3>
-					<p>The shortest distance between 2 points is always a straight line</p>
-          <img src="img/gnomonic.png">
+        <section data-background="img/gnomonic.png">
+          <a href="demos/gnomonic.html">
+  					<h1 class="stroke">Gnomonic</h1>
+            <h2 class="stroke">Preserve shortest route</h2>
+          </a>
+          <aside class="notes">
+  					<p>The shortest distance between 2 points is always a straight line</p>
+          </aside>
 				</section>
 
-				<section>
-					<h3><a href="demos/dymaxion.html">Compromise (Preserve "feeling")</a></h3>
-          <p>Ignore trying to preserve a metric and make the end result "feel" right</p>
-          <img src="img/dymaxion.png">
+        <section data-background="img/dymaxion.png">
+          <a href="demos/gnomonic.html">
+            <h1 class="stroke">Dymaxion</h1>
+            <h2 class="stroke">Preserve "feeling"</h2>
+          </a>
 				</section>
 
 				<section>
 					<h2><a href="https://gmaps-samples.googlecode.com/svn/trunk/poly/puzzledrag.html">Google Mercator Puzzle</a></h2>
-          <p>Combat map distoration and figure out which countries go where!</p>
+          <p>Figure out which countries go where!</p>
           <img src="img/mercatorpuzzle.png">
 				</section>
 
 				<section data-state="title">
-					<h2>Spatial Reference Systems</h2>
-					<p>Geographic Coordinate System/Projected Coordinate System</p>
+					<h1>Spatial Reference Systems</h1>
+					<p>Geographic Coordinate System</p>
+          <p>Projected Coordinate System</p>
 				</section>
 
 				<section>
@@ -273,14 +290,13 @@
 				</section>
 
 				<section>
-					<h2>How stuff works, Leaflet edition</h2>
+					<h2>How Leaflet Works</h2>
 					<pre><code>L.marker([45.5217, -122.6774]).addTo(map)</code></pre>
 					<br>
 					<ul>
-						<li>Use <code><a href="https://github.com/Leaflet/Leaflet/blob/9cb36d0a62e07709f17fa722af730628306ff912/src/geo/crs/CRS.EPSG3857.js">L.CRS.EPSG3857</a></code> to get the X/Y coordinates of the Lat/Lng (projection)</li>
-						<li>Scales the resulting X/Y (meters) on the zoom level</li>
-						<li>Now you have X/Y in pixels coordinates!</li>
-						<li>Draw</li>
+						<li>Use <code><a href="https://github.com/Leaflet/Leaflet/blob/9cb36d0a62e07709f17fa722af730628306ff912/src/geo/crs/CRS.EPSG3857.js">L.CRS.EPSG3857</a></code> project the Lat/Lng to meters</li>
+						<li>Scale the resulting X/Y (meters) on the zoom level</li>
+						<li>Now you have X/Y in pixels coordinates</li>
 					</ul>
 				</section>
 
@@ -298,7 +314,7 @@
 				</section>
 
         <section>
-          <h2>Dealing with Spatial References</h2>
+          <h2>Working with Spatial References</h2>
           <ul>
             <li>ogr2ogr</li>
             <li>proj4js</li>
@@ -306,24 +322,24 @@
         </section>
 
         <section>
-          <h3>Shapefile to GeoJSON - ogr2ogr</h3>
+          <h2>Shapefile to GeoJSON - ogr2ogr</h2>
           <p>Shapefiles package useful for distributing spatial data.</p>
           <pre><code class="bash">ogr2ogr parks.geojson PortlandParksTrails -F GeoJSON -t_srs EPSG:4326 -lco COORDINATE_PRECISION=6</code></pre>
         </section>
 
         <section>
-          <h3>CSV to GeoJSON - ogr2ogr</h3>
+          <h2>CSV to GeoJSON - ogr2ogr</h2>
           <p>Transform point data in a CSV file to GeoJSON.</p>
           <pre><code class="bash">ogr2ogr graffiti.geojson graffiti.vrt -f GeoJSON -t_srs EPSG:4326 -lco COORDINATE_PRECISION=-4</code></pre>
         </section>
 
         <section>
-          <h3>CSV to GeoJSON - proj4js</h3>
+          <h2>CSV to GeoJSON - proj4js</h2>
           <p>Use proj4js and Node to convert the same CSV</p>
         </section>
 
 				<section data-state="title">
-					<h2>The Future</h2>
+					<h1>The Future</h1>
 				</section>
 
         <section>
