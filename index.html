@@ -85,7 +85,7 @@
         </section>
 
         <section>
-          <h1>Terminology Gap</h1>
+          <h2>Terminology Gap</h2>
           <p>GIS is an profession with its own vocabulary and conceptual model</p>
         </section>
 
@@ -104,7 +104,8 @@
             <li class="fragment">Surfaces (plane, cylinder, cone&hellip;)</li>
             <li class="fragment">Preservation (angle, area, distance&hellip;)</li>
           </ul>
-          <br><br>
+          <br>
+          <br>
           <small class="fragment">Thanks to <a href="https://github.com/mbostock">Mike Bostock</a> and <a href="https://github.com/jasondavies">Jason Davies</a> for <a href="https://github.com/d3/d3-geo-projection">D3 Geo Projections</a></small>
         </section>
 
@@ -175,7 +176,6 @@
 
 				<section>
 					<h2><a href="https://gmaps-samples.googlecode.com/svn/trunk/poly/puzzledrag.html">Google Mercator Puzzle</a></h2>
-          <p>Figure out which countries go where!</p>
           <img src="img/mercatorpuzzle.png">
           <aside class="notes">shapes are distorted the further from the equator they are</aside>
 				</section>
@@ -245,6 +245,33 @@
           <aside class="notes">this is probally the most important thing i will tell you in this talk</aside>
         </section>
 
+        <section>
+          <h2>Say hello to <a href="http://spatialreference.org/ref/sr-org/7483/prettywkt/">EPSG:3857</a></h2>
+          <pre><code class="bash">PROJCS["WGS 84 / Pseudo-Mercator",
+  GEOGCS["WGS 84",
+    DATUM["WGS_1984",
+      SPHEROID["WGS 84",6378137,298.257223563,
+        AUTHORITY["EPSG","7030"]],
+      AUTHORITY["EPSG","6326"]],
+    PRIMEM["Greenwich",0,
+      AUTHORITY["EPSG","8901"]],
+    UNIT["degree",0.0174532925199433,
+      AUTHORITY["EPSG","9122"]],
+    AUTHORITY["EPSG","4326"]],
+  PROJECTION["Mercator_1SP"],
+  PARAMETER["central_meridian",0],
+  PARAMETER["scale_factor",1],
+  PARAMETER["false_easting",0],
+  PARAMETER["false_northing",0],
+  UNIT["metre",1,
+      AUTHORITY["EPSG","9001"]],
+  AXIS["X",EAST],
+  AXIS["Y",NORTH],
+  EXTENSION["PROJ4","+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"],
+  AUTHORITY["EPSG","3857"]]</code></pre>
+          <p>Web Mercator. Default in Google Maps, Leaflet and Esri.</p>
+        </section>
+
 				<section>
 					<h2>How Leaflet Works</h2>
 					<pre><code>L.marker([45.5217, -122.6774]).addTo(map)</code></pre>
@@ -261,9 +288,10 @@
           <img src="img/stateplane.png">
 				</section>
 
-        <section>
-          <h2>Working with Spatial References</h2>
-          <ul>
+        <section data-state="title-alt">
+          <h2>This is a pain in the ass&hellip;</h2>
+          <p class="fragment">Why can't we just make everything Lat/Lng and GeoJSON</p>
+          <ul class="fragment">
             <li>ogr2ogr</li>
             <li>proj4js</li>
           </ul>
@@ -271,14 +299,14 @@
 
         <section>
           <h2>Shapefile to GeoJSON - ogr2ogr</h2>
-          <p>Shapefiles package useful for distributing spatial data.</p>
+          <p>Shapefiles are useful for distributing spatial data</p>
           <pre><code class="bash">ogr2ogr parks.geojson PortlandParksTrails -F GeoJSON -t_srs EPSG:4326 -lco COORDINATE_PRECISION=6</code></pre>
           <a href="demos/spatialreferenceconversion/shapefile">Demo</a>
         </section>
 
         <section>
           <h2>CSV to GeoJSON - proj4js</h2>
-          <p>Use proj4js and Node to convert the same CSV</p>
+          <p>Use proj4js and Node to convert CSVs to GeoJSON</p>
           <a href="demos/spatialreferenceconversion/csv">Demo</a>
         </section>
 
