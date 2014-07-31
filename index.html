@@ -55,13 +55,6 @@
 				</section>
 
 				<section>
-					<blockquote>
-						The biggest company you never heard of...
-						<br><br><small>- Amber Case</small>
-					</blockquote>
-				</section>
-
-				<section>
 					<h3>Visualize, analyze, and interpret (spatial) data. (Geographic Information Systems)</h3>
 					<br>
 					<ul>
@@ -69,10 +62,6 @@
 						<li>Utility & Communictions</li>
 						<li>Natural Resources</li>
 					</ul>
-				</section>
-
-				<section data-state="title">
-					<h2>Lots of maps&hellip;</h2>
 				</section>
 
 				<section>
@@ -87,22 +76,21 @@
 						<li>Enterprisy</li>
 						<li>Field Work & Desktop Workstations</li>
 						<li>Domain Specific</li>
+            <li>The Map is the App</li>
 					</ul>
 				</section>
 
-				<section>
-					<h3>How software developers make maps&hellip;</h3>
-					<ul>
-						<li>Customization</li>
-						<li>Basic Funcationality</li>
-						<li>Provided Data</li>
-						<li>Visual Design</li>
-						<li>Extensibility</li>
-					</ul>
-				</section>
+        <section>
+          <p>What I do at the PDX R&D center is build things that bring GIS Developers and Software Developers togather</p>
+        </section>
+
+        <section>
+          <h1>Terminology Gap</h1>
+          <p>GIS is an profession with its own vocabulary and conceptual model</p>
+        </section>
 
 				<section data-state="title-alt">
-					<h2>Everything you never wanted to know about maps&hellip;</h2>
+					<h2>(Not Quite) Everything you never wanted to know about maps&hellip;</h2>
 				</section>
 
 				<section data-state="title">
@@ -125,6 +113,7 @@
             <h1 class="stroke">Azimuthal</h1>
             <h2 class="stroke">Sphere to Plane</h2>
           </a>
+          <aside class="notes">Distances to the center are preserved</aside>
 				</section>
 
 				<section data-background="img/cylindrical.png">
@@ -132,6 +121,7 @@
             <h1 class="stroke">Cylindrical</h1>
             <h2 class="stroke">Sphere to Cylinder</h2>
           </a>
+          <aside class="notes">Distortion happens as you move away from the equator</aside>
 				</section>
 
 				<section data-background="img/conic.png">
@@ -139,6 +129,7 @@
             <h1 class="stroke">Conic</h1>
             <h2 class="stroke">Sphere to Cone</h2>
           </a>
+          <aside class="notes">Distoration happens as you move away from the centerpoint</aside>
 				</section>
 
 				<section data-background="img/sterographic.png">
@@ -153,7 +144,7 @@
             <h1 class="stroke">Mercator</h1>
             <h2 class="stroke">Preserve course</h2>
           </a>
-					<aside class="notes">navigation, also square</aside>
+					<aside class="notes">navigation, also square, lat,lng lines are straight</aside>
 				</section>
 
 				<section data-background="img/equalarea.png">
@@ -161,9 +152,7 @@
             <h1 class="stroke">Equal-Area</h1>
             <h2 class="stroke">Preserve proportional areas</h2>
           </a>
-          <aside class="notes">
-            <p>Shapes are always presented with areas proporational to each other.</p>
-          </aside>
+          <aside class="notes">Shapes are always presented with areas proporational to each other.</aside>
 				</section>
 
 				<section data-background="img/equirectangular.png">
@@ -176,31 +165,23 @@
           </aside>
 				</section>
 
-        <section data-background="img/gnomonic.png">
-          <a href="demos/gnomonic.html">
-  					<h1 class="stroke">Gnomonic</h1>
-            <h2 class="stroke">Preserve shortest route</h2>
-          </a>
-          <aside class="notes">
-  					<p>The shortest distance between 2 points is always a straight line</p>
-          </aside>
-				</section>
-
         <section data-background="img/dymaxion.png">
           <a href="demos/dymaxion.html">
             <h1 class="stroke">Dymaxion</h1>
             <h2 class="stroke">Preserve "feeling"</h2>
           </a>
+          <aside class="notes">compromise projections, dont preserve a metric but try to "feel" right</aside>
 				</section>
 
 				<section>
 					<h2><a href="https://gmaps-samples.googlecode.com/svn/trunk/poly/puzzledrag.html">Google Mercator Puzzle</a></h2>
           <p>Figure out which countries go where!</p>
           <img src="img/mercatorpuzzle.png">
+          <aside class="notes">shapes are distorted the further from the equator they are</aside>
 				</section>
 
 				<section data-state="title">
-					<h1>Spatial Reference Systems</h1>
+					<h2>Spatial Reference Systems</h2>
 					<p>Geographic Coordinate System</p>
           <p>Projected Coordinate System</p>
 				</section>
@@ -208,7 +189,7 @@
 				<section>
 					<h2>Where is this point?</h2>
 					<pre><code>[45.5217, -122.6774]</code></pre>
-					<p class="fragment">You can't tell me because you dont have a reference</p>
+          <aside class="notes">You cant tell me for certain without a reference point</aside>
 				</section>
 
 				<section>
@@ -224,26 +205,12 @@
   UNIT["degree",0.01745329251994328,
       AUTHORITY["EPSG","9122"]],
   AUTHORITY["EPSG","4326"]]</code></pre>
-				</section>
-
-				<section>
-					<h2>Say hello to <a href="http://spatialreference.org/ref/epsg/4326/">EPSG:4326</a></h2>
-					<pre><code class="bash">GEOGCS["WGS 84",
-  DATUM["WGS_1984",
-      SPHEROID["WGS 84",6378137,298.257223563,
-          AUTHORITY["EPSG","7030"]],
-      AUTHORITY["EPSG","6326"]],
-  PRIMEM["Greenwich",0,
-      AUTHORITY["EPSG","8901"]],
-  UNIT["degree",0.01745329251994328,
-      AUTHORITY["EPSG","9122"]],
-  AUTHORITY["EPSG","4326"]]</code></pre>
-          <p>This is what GPS satellites use.</p>
+          <aside class="notes">now that you have a reference point this is the esri pdx office downtown</aside>
 				</section>
 
 				<section data-state="title-alt">
 					<h2>Geographic Coordinate System</h2>
-					<p>Plot data in Latitude/Longitude onto a spherical model of the Earth</p>
+					<p>Latitude/Longitude onto a spherical model of the Earth</p>
 				</section>
 
 				<section>
@@ -256,38 +223,27 @@
 					</ul>
 				</section>
 
+        <section>
+          <h2>Say hello to <a href="http://spatialreference.org/ref/epsg/4326/">EPSG:4326</a></h2>
+          <pre><code class="bash">GEOGCS["WGS 84",
+  DATUM["WGS_1984",
+      SPHEROID["WGS 84",6378137,298.257223563,
+          AUTHORITY["EPSG","7030"]],
+      AUTHORITY["EPSG","6326"]],
+  PRIMEM["Greenwich",0,
+      AUTHORITY["EPSG","8901"]],
+  UNIT["degree",0.01745329251994328,
+      AUTHORITY["EPSG","9122"]],
+  AUTHORITY["EPSG","4326"]]</code></pre>
+          <p>This is what GPS satellites use.</p>
+        </section>
+
         <section data-state="title-alt">
           <h2>Projected Coordinate System</h2>
           <p>Plot data in X/Y pairs onto a flat surface.</p>
           <p>X=Longitude, Y=Latitude</p>
+          <aside class="notes">this is probally the most important thing i will tell you in this talk</aside>
         </section>
-
-				<section>
-					<h2>Say hello to <a href="http://spatialreference.org/ref/sr-org/7483/prettywkt/">EPSG:3857</a></h2>
-					<pre><code class="bash">PROJCS["WGS 84 / Pseudo-Mercator",
-    GEOGCS["WGS 84",
-        DATUM["WGS_1984",
-            SPHEROID["WGS 84",6378137,298.257223563,
-                AUTHORITY["EPSG","7030"]],
-            AUTHORITY["EPSG","6326"]],
-        PRIMEM["Greenwich",0,
-            AUTHORITY["EPSG","8901"]],
-        UNIT["degree",0.0174532925199433,
-            AUTHORITY["EPSG","9122"]],
-        AUTHORITY["EPSG","4326"]],
-    PROJECTION["Mercator_1SP"],
-    PARAMETER["central_meridian",0],
-    PARAMETER["scale_factor",1],
-    PARAMETER["false_easting",0],
-    PARAMETER["false_northing",0],
-    UNIT["metre",1,
-        AUTHORITY["EPSG","9001"]],
-    AXIS["X",EAST],
-    AXIS["Y",NORTH],
-    EXTENSION["PROJ4","+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs"],
-    AUTHORITY["EPSG","3857"]]</code></pre>
-          <p>Web Mercator. Default in Google Maps, Leaflet and Esri.</p>
-				</section>
 
 				<section>
 					<h2>How Leaflet Works</h2>
@@ -299,14 +255,6 @@
 						<li>Now you have X/Y in pixels coordinates</li>
 					</ul>
 				</section>
-
-        <section data-state="title-alt">
-          <h2>Spatial References in the Wild</h2>
-          <ul>
-            <li>Over 8000 projections listed on <a href="">spatialreference.org</a></li>
-            <li>Data required to be in a specific spatial reference</li>
-          </ul>
-        </section>
 
 				<section>
           <h2><a href="demos/stateplane/">State Plane System</a></h2>
@@ -325,17 +273,13 @@
           <h2>Shapefile to GeoJSON - ogr2ogr</h2>
           <p>Shapefiles package useful for distributing spatial data.</p>
           <pre><code class="bash">ogr2ogr parks.geojson PortlandParksTrails -F GeoJSON -t_srs EPSG:4326 -lco COORDINATE_PRECISION=6</code></pre>
-        </section>
-
-        <section>
-          <h2>CSV to GeoJSON - ogr2ogr</h2>
-          <p>Transform point data in a CSV file to GeoJSON.</p>
-          <pre><code class="bash">ogr2ogr graffiti.geojson graffiti.vrt -f GeoJSON -t_srs EPSG:4326 -lco COORDINATE_PRECISION=-4</code></pre>
+          <a href="demos/spatialreferenceconversion/shapefile">Demo</a>
         </section>
 
         <section>
           <h2>CSV to GeoJSON - proj4js</h2>
           <p>Use proj4js and Node to convert the same CSV</p>
+          <a href="demos/spatialreferenceconversion/csv">Demo</a>
         </section>
 
 				<section data-state="title">

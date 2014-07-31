@@ -195,9 +195,6 @@ html.title-alt body {
 .reveal li, .reveal p {
   line-height: 1.5em; }
 
-.stroke {
-  -webkit-text-stroke: 2px white; }
-
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   line-height: 1.25em; }
 .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
